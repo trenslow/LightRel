@@ -1,0 +1,8 @@
+.idea/workspace.xml
+SemEval18task7/__pycache__
+SemEval18task7/features/acm_abstracts.wcs.txt
+SemEval18task7/features/abstracts-dblp-semeval2018.wcs.txt
+SemEval18task7/models/libLinearInput_test.txt
+SemEval18task7/models/libLinearInput_train.txt
+SemEval18task7/results/*
+SemEval18task7/features/record_*.txt
