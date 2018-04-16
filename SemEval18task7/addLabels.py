@@ -1,6 +1,6 @@
 import ast
 import sys
-from parameters18 import *
+from parameters import *
 
 
 def read_labels(file):
@@ -25,7 +25,7 @@ if __name__ == '__main__':
     test_record = read_record(path_to_test)
     relation_list = [(rec[2:5]) for rec in test_record]  # list of entities in order of test case
 
-    with open('answer_key18.txt', 'w+') as key:
+    with open('answer_key.txt', 'w+') as key:
         for rec in relation_list:
             e1, e2, label = rec
             label_split = label.split()

@@ -24,10 +24,10 @@ fi
 if [[ "$k" = "0"  ]]; then
     echo "competition run"
     echo "---running feature extraction---"
-    python3 featureExtraction18.py ${k}
+    python3 featureExtraction.py ${k}
 
     echo "---converting sentences to vectors---"
-    python3 sent2vec18.py ${k}
+    python3 sent2vec.py ${k}
 
     cd ${libLinDir}
     echo "---training LibLinear model---"
@@ -37,9 +37,9 @@ if [[ "$k" = "0"  ]]; then
 
     cd ${mainDir}
     echo "---adding labels to LibLinear output---"
-    python3 addLabels18.py ${k}
+    python3 addLabels.py ${k}
 
-    perl "semeval2018_task7_scorer-v1.2.pl" ${modelDir}"predictions_with_labels.txt" answer_key18.txt
+    perl "semeval2018_task7_scorer-v1.2.pl" ${modelDir}"predictions_with_labels.txt" answer_key.txt
 
 elif [[ "$k" >  "0" ]]; then
     echo "${k}-fold cross-validation"
@@ -49,10 +49,10 @@ elif [[ "$k" >  "0" ]]; then
     do
     echo "---current fold: ${i}---"
     echo "---running feature extraction---"
-    python3 featureExtraction18.py ${k}
+    python3 featureExtraction.py ${k}
 
     echo "---converting sentences to vectors---"
-    python3 sent2vec18.py ${i}
+    python3 sent2vec.py ${i}
 
     cd ${libLinDir}
     echo "---training LibLinear model---"
@@ -62,10 +62,10 @@ elif [[ "$k" >  "0" ]]; then
 
     cd ${mainDir}
     echo "---adding labels to LibLinear output---"
-    python3 addLabels18.py ${i}
+    python3 addLabels.py ${i}
 
     echo "---writing results to file---"
-    perl "semeval2018_task7_scorer-v1.2.pl" ${modelDir}"predictions_with_labels.txt" answer_key18.txt > ${resultsDir}"results${i}.txt"
+    perl "semeval2018_task7_scorer-v1.2.pl" ${modelDir}"predictions_with_labels.txt" answer_key.txt > ${resultsDir}"results${i}.txt"
     done
 
     python3 average.py

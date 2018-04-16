@@ -1,5 +1,5 @@
 import itertools
-from parameters18 import *
+from parameters import *
 import sys
 try:
     import xml.etree.cElementTree as ET
