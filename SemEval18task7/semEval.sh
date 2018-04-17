@@ -39,7 +39,7 @@ if [[ "$k" = "0"  ]]; then
     echo "---adding labels to LibLinear output---"
     python3 addLabels.py ${k}
 
-    perl "semeval2018_task7_scorer-v1.2.pl" ${modelDir}"predictions_with_labels.txt" answer_key.txt
+    perl "semeval2018_task7_scorer-v1.2.pl" ${modelDir}"predictions_with_labels.txt" ${modelDir}answer_key.txt
 
 elif [[ "$k" >  "0" ]]; then
     echo "---running ${k}-fold cross-validation---"
@@ -65,7 +65,7 @@ elif [[ "$k" >  "0" ]]; then
     python3 addLabels.py ${i}
 
     echo "---writing results to file---"
-    perl "semeval2018_task7_scorer-v1.2.pl" ${modelDir}"predictions_with_labels.txt" answer_key.txt > ${resultsDir}"results${i}.txt"
+    perl "semeval2018_task7_scorer-v1.2.pl" ${modelDir}"predictions_with_labels.txt" ${modelDir}answer_key.txt > ${resultsDir}"results${i}.txt"
     done
 
     python3 average.py
