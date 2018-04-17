@@ -72,19 +72,19 @@ if __name__ == '__main__':
         which_set = ''
     which_record_train = 'record_train' + which_set + '.txt'
     which_record_test = 'record_test' + which_set + '.txt'
-    records_and_outs = [(path_to_feat_folder + which_record_train, path_to_model_folder + 'libLinearInput_train.txt'),
-                        (path_to_feat_folder + which_record_test, path_to_model_folder + 'libLinearInput_test.txt')]
-    record_file = path_to_feat_folder + 'record.txt'
-    vocab_file = path_to_feat_folder + 'vocab.txt'
-    shapes_file = path_to_feat_folder + 'shapes.txt'
-    label_file = path_to_feat_folder + 'labels.txt'
-    e1_context_file = path_to_feat_folder + 'e1_context.txt'
-    e2_context_file = path_to_feat_folder + 'e2_context.txt'
-    abstracts_file = path_to_feat_folder + 'abstracts.txt'
-    word_embds_file = path_to_feat_folder + 'abstracts-dblp-semeval2018.wcs.txt'  # smaller embds for dev
-    # word_embds_file = path_to_feat_folder + 'acm_abstracts.wcs.txt'
-    # cluster_file = path_to_feat_folder + 'dblp_marlin_clusters_1000'
-    cluster_file = path_to_feat_folder + 'acm_marlin_clusters_1000'
+    records_and_outs = [(features_dir + which_record_train, models_dir + 'libLinearInput_train.txt'),
+                        (features_dir + which_record_test, models_dir + 'libLinearInput_test.txt')]
+    record_file = features_dir + 'record.txt'
+    vocab_file = features_dir + 'vocab.txt'
+    shapes_file = features_dir + 'shapes.txt'
+    label_file = features_dir + 'labels.txt'
+    e1_context_file = features_dir + 'e1_context.txt'
+    e2_context_file = features_dir + 'e2_context.txt'
+    abstracts_file = features_dir + 'abstracts.txt'
+    word_embds_file = features_dir + 'abstracts-dblp-semeval2018.wcs.txt'  # smaller embds for dev
+    # word_embds_file = features_dir + 'acm_abstracts.wcs.txt'
+    # cluster_file = features_dir + 'dblp_marlin_clusters_1000'
+    cluster_file = features_dir + 'acm_marlin_clusters_1000'
     unknown = 'UNK'
     num_words = 0
     num_shapes = 0

@@ -18,9 +18,9 @@ def read_record(file):
 
 if __name__ == '__main__':
     which_set = '' if sys.argv[1] == '0' else sys.argv[1]
-    path_to_predictions = path_to_model_folder + 'predictions.txt'
-    path_to_labels = path_to_feat_folder + 'labels.txt'
-    path_to_test = path_to_feat_folder + 'record_test' + which_set + '.txt'
+    path_to_predictions = models_dir + 'predictions.txt'
+    path_to_labels = features_dir + 'labels.txt'
+    path_to_test = features_dir + 'record_test' + which_set + '.txt'
     labels = read_labels(path_to_labels)
     test_record = read_record(path_to_test)
     relation_list = [(rec[2:5]) for rec in test_record]  # list of entities in order of test case
@@ -34,7 +34,7 @@ if __name__ == '__main__':
             else:
                 key.write(label_split[0] + '(' + e1 + ',' + e2 + ')' + '\n')
 
-    with open(path_to_predictions) as predicts, open(path_to_model_folder + 'predictions_with_labels.txt', 'w+') as out:
+    with open(path_to_predictions) as predicts, open(models_dir + 'predictions_with_labels.txt', 'w+') as out:
         for i, pred in enumerate(predicts):
             e1, e2, label = relation_list[i]
             label_split = label.split()

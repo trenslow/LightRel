@@ -1,5 +1,6 @@
-path_to_feat_folder = 'features/'
-path_to_model_folder = 'models/'
+features_dir = 'features/'
+models_dir = 'models/'
+data_dir = 'data/'
 fire_words = True
 fire_shapes = False
 fire_embeddings = True

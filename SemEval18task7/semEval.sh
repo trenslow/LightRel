@@ -22,7 +22,7 @@ else
 fi
 
 if [[ "$k" = "0"  ]]; then
-    echo "competition run"
+    echo "---competition run---"
     echo "---running feature extraction---"
     python3 featureExtraction.py ${k}
 
@@ -42,7 +42,7 @@ if [[ "$k" = "0"  ]]; then
     perl "semeval2018_task7_scorer-v1.2.pl" ${modelDir}"predictions_with_labels.txt" answer_key.txt
 
 elif [[ "$k" >  "0" ]]; then
-    echo "${k}-fold cross-validation"
+    echo "---running ${k}-fold cross-validation---"
     rm -r ${resultsDir}; mkdir ${resultsDir}
 
     for i in $(seq 1 ${k});

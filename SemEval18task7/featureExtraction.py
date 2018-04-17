@@ -119,21 +119,23 @@ def index_uniques(uni_out, uniqs):
 
 if __name__ == '__main__':
     folds = int(sys.argv[1])
-    path_to_relations = task_number + '.relations.txt'
-    path_to_test_relations = 'keys.test.' + task_number + '.txt'
-    path_to_data = task_number + '.text.xml'
-    path_to_test_data = task_number + '.test.text.xml'
-    train_record_file = path_to_feat_folder + 'record_train.txt'
-    test_record_file = path_to_feat_folder + 'record_test.txt'
-    vocab_output = path_to_feat_folder + 'vocab.txt'
-    shapes_output = path_to_feat_folder + 'shapes.txt'
-    e1_context_output = path_to_feat_folder + 'e1_context.txt'
-    e2_context_output = path_to_feat_folder + 'e2_context.txt'
-    label_output = path_to_feat_folder + 'labels.txt'
+    # input files
+    path_to_relations = data_dir + task_number + '.relations.txt'
+    path_to_test_relations = data_dir + 'keys.test.' + task_number + '.txt'
+    path_to_train_data = data_dir + task_number + '.text.xml'
+    path_to_test_data = data_dir + task_number + '.test.text.xml'
+    # output files
+    train_record_file = features_dir + 'record_train.txt'
+    test_record_file = features_dir + 'record_test.txt'
+    vocab_output = features_dir + 'vocab.txt'
+    shapes_output = features_dir + 'shapes.txt'
+    e1_context_output = features_dir + 'e1_context.txt'
+    e2_context_output = features_dir + 'e2_context.txt'
+    label_output = features_dir + 'labels.txt'
 
     training_relation_index = create_relation_index(path_to_relations)
     test_relation_index = create_relation_index(path_to_test_relations)
-    training_text_index, training_entity_index = collect_texts(path_to_data)
+    training_text_index, training_entity_index = collect_texts(path_to_train_data)
     test_text_index, test_entity_index = collect_texts(path_to_test_data)
     training_records = create_record(training_text_index, training_relation_index, training_entity_index)
     unique_test_words, unique_test_context_e1, unique_test_context_e2 = set(), set(), set()
@@ -155,8 +157,8 @@ if __name__ == '__main__':
             test_end = int(test_size * k)
             cv_test_split = training_records[test_start:test_end]
             cv_train_split = training_records[:test_start] + training_records[test_end:]
-            cv_test_output = path_to_feat_folder + 'record_test' + str(k) + '.txt'
-            cv_train_output = path_to_feat_folder + 'record_train' + str(k) + '.txt'
+            cv_test_output = features_dir + 'record_test' + str(k) + '.txt'
+            cv_train_output = features_dir + 'record_train' + str(k) + '.txt'
             write_record(cv_test_output, cv_test_split)
             write_record(cv_train_output, cv_train_split)
 
