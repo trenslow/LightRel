@@ -26,6 +26,7 @@ LightRel also requires an embedding file, which can be downloaded [here](https:/
 There are two files to choose from at this link (both have .wcs in their names); the one used in the competition is made from the dblp corpus. Once downloaded, unzip the embedding file into the features directory of the system with the following commands (with your own path to LightRel directory, of course):
 
 ```
+cd ~/Downloads/
 gunzip abstracts-dblp-semeval2018.wcs.txt.gz 
 mv abstracts-dblp-semeval2018.wcs.txt ~/your/path/to/LightRel/SemEval18task7/features/
 ```
