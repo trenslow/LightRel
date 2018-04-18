@@ -17,14 +17,18 @@ After downloading, change into the system directory:
 
 ```
 cd SemEval18task7/
-
 ```
 
 Here you will find the system script lightRel.sh. Make sure to edit this script so that it points to the location of LibLinear on your system. You can find more about running the system and changing the LibLinear parameters below.
 
 LightRel also requires an embedding file, which can be downloaded [here](https://cloud.dfki.de/owncloud/index.php/s/WKOCMj5UYiSVZeR). The README file at that link goes into more depth about how the embeddings were created.
 
-There are two files to choose from at this link (both have .wcs in their names); the one used in the competition is made from the dblp corpus. Once downloaded, unzip the embedding file into the features directory of the system.
+There are two files to choose from at this link (both have .wcs in their names); the one used in the competition is made from the dblp corpus. Once downloaded, unzip the embedding file into the features directory of the system with the following commands (with your own path to LightRel directory, of course):
+
+```
+gunzip abstracts-dblp-semeval2018.wcs.txt.gz 
+mv abstracts-dblp-semeval2018.wcs.txt ~/your/path/to/LightRel/SemEval18task7/features/
+```
 
 Once the paths are properly set and the embeddings are in the correct folder, LightRel can be run.
 
@@ -34,7 +38,6 @@ To run the system, run the following in the SemEval18task7 directory:
 
 ```
 ./lightRel.sh k
-
 ```
 
 An argument *k* must be included. If *k* is 0, then LightRel will perform competition mode, which trains on the data provided by the task organizers and then predicts on the test data.
