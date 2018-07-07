@@ -1,6 +1,10 @@
 # LightRel
 
-This is the system used to participate in Task 7 of the International Workshop on Semantic Evaluation 2018. 
+This is the system used to participate in Task 7 of the International Workshop on Semantic Evaluation 2018.
+
+TODO:
+
+- add instructions for installing and running the precursor to this system, which was developed on the dataset from  Task 8 of the International Workshop on Semantic Evaluation 2010
 
 ## System Requirements
 
